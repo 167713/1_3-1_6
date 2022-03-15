@@ -8,7 +8,9 @@ public class Main {
     System.out.println("2. Kalkulator ");
     System.out.println("3. Liczby parzyste ");
     System.out.println("4. Liczba pierwsza ");
-    System.out.println("5. Choinka ");
+    System.out.println("5. Liczby nieparzyste ");
+    System.out.println("6. Celsjusz i Fahrenheit ");
+    System.out.println("7. Choinka ");
     wybor = s.nextInt();
     switch (wybor) {
       case 1:
@@ -24,8 +26,14 @@ public class Main {
         pierwsze();
         break;
       case 5:
-        choinka();
+        nieparzyste();
         break;
+      case 6:
+        cf();
+        break;
+      case 7:
+        choinka();
+      break;
       default: 
         System.out.println("Brak opcji");
         break;
@@ -34,57 +42,71 @@ public class Main {
   }
   
 public static void dodawanie() {
-    int one, two, four, suma;
+    int one, two;
+    double suma;
     Scanner sa = new Scanner(System.in);
-    System.out.println("Podaj liczbe 1/3: ");
+    System.out.println("Podaj liczbe 1/2: ");
     one = sa.nextInt();
 
-    System.out.println("Podaj liczbe 2/3: ");
+    System.out.println("Podaj liczbe 2/2: ");
     two = sa.nextInt();
 
-    System.out.println("Podaj liczbe 3/3: ");
-    four = sa.nextInt();
-    suma = one + two + four;
+    suma = Math.sqrt(one) + Math.sqrt(two);
     System.out.println("To " + suma);
   }
   
 public static void kalkulator() {
     int dzial;
-    float c1, c2, wynik=0;
+    double c1=0, c2=0, wynik=0;
     Scanner sb = new Scanner(System.in);
     System.out.println("Wybierz dzialanie: ");
-    System.out.println("1. Suma ");
-    System.out.println("2. Roznica ");
-    System.out.println("3. Iloczyn ");
+    System.out.println("1. Pole prostokata ");
+    System.out.println("2. Suma pol kol ");
+    System.out.println("3. Pole trojkata prostokatnego ");
     System.out.println("4. Iloraz ");
     dzial = sb.nextInt();
     if(dzial<1 || dzial>4)
     System.out.println("Nie ma takiej opcji: ");
     else{
-    System.out.println("Podaj pierwsza liczbe: ");
-    c1 = sb.nextFloat();
-    System.out.println("Podaj druga liczbe: ");
-    c2 = sb.nextFloat();
     switch (dzial) {
       case 1:
-        wynik = c1+c2;
+        System.out.println("Podaj pierwszy bok: ");
+        c1 = sb.nextDouble();
+        System.out.println("Podaj drugi bok: ");
+        c2 = sb.nextDouble();
+        wynik = c1*c2;
+        System.out.println("Pole prostokata: "+wynik);
         break;
       case 2:
-        wynik = c1-c2;
-        break;
+        System.out.println("Podaj promien 1: ");
+        c1 = sb.nextDouble();
+        System.out.println("Podaj promien 2: ");
+        c2 = sb.nextDouble();
+        wynik = (Math.PI *(c1*c1))+(Math.PI *(c2*c2));
+        System.out.println("Suma pol: "+wynik);
+      break;
       case 3:
-        wynik = c1*c2;
+        System.out.println("Podaj bok 1: ");
+        c1 = sb.nextDouble();
+        System.out.println("Podaj bok 2: ");
+        c2 = sb.nextDouble();
+        wynik=(c1*c2)/2;
+        System.out.println("Pole: "+wynik);
         break;
       case 4:
+        System.out.println("Podaj pierwsza liczbe: ");
+        c1 = sb.nextDouble();
+        System.out.println("Podaj druga liczbe: ");
+        c2 = sb.nextDouble();
         if(c2==0){
           System.out.println("Nie dzilimy przez 0");
           break;
           }
         else
         wynik = c1/c2;
+        System.out.println("Wynik dzielenia: "+wynik);
         break;
       }
-      System.out.println("Wynik dzialania: "+wynik);
     }
   }
 
@@ -122,7 +144,39 @@ public static void kalkulator() {
       System.out.println("To nie jest liczba pierwsza ");
   }
 
+  public static void nieparzyste() {
+      int j=50;
+      while(j<101){
+      if(j %2 == 0)
+        j++;
+      else{
+        System.out.println("Liczba nieparzysta: "+j);
+        j++;
+        }
+      }
+  }
+  
+  public static void cf() {
+    int cel=0;
+    float fah;
+    while(cel!=320){
+      fah=32+((cel*9)/5);
+      System.out.println(+cel+"C = "+fah+"F");
+      cel+=20;
+    }
+  }
+
   public static void choinka() {
-    int szer=14, lszer=1;
+    Scanner sb = new Scanner(System.in);
+    int wys, szer;
+    do{
+    System.out.println("Podaj wartosci wieksze niz 0");
+    System.out.println("Podaj wysokosc: ");
+    wys = sb.nextInt();
+    System.out.println("Podaj szerokosc: ");
+    szer = sb.nextInt();
+      }while(szer==0 || wys==0);
+    char[][] choinka = new char[wys][szer];
+    for ()
   }
 }
